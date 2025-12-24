@@ -1,0 +1,56 @@
+/* Контейнер всіх карток */
+.cards-container {
+  display: flex;
+  /* розташовує картки в ряд */
+  flex-wrap: wrap;
+  /* якщо не поміщається, переносить на новий рядок */
+  gap: 20px;
+  /* відстань між картками */
+  justify-content: center;
+  /* по центру */
+  padding: 20px;
+}
+
+/* Окрема картка */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  width: 250px;
+  /* ширина картки */
+  padding: 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  /* вертикальне розташування елементів */
+  align-items: center;
+}
+
+/* Картинка */
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Назва товару */
+.card h1 {
+  font-size: 20px;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+/* Опис */
+.card p {
+  font-size: 14px;
+  margin: 5px 0;
+  text-align: center;
+}
+
+/* Блок базової інформації */
+.card .info {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  width: 100%;
+  text-align: left;
+}
