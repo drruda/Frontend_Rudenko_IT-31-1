@@ -1,21 +1,23 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CarModel } from '../../shared/models/car_model';
 import { CarCardComponent } from '../car-card/car-card.component';
 
 @Component({
   selector: 'app-cars-list',
-  imports: [],
+  imports: [CommonModule, CarCardComponent],
   templateUrl: './cars-list.component.html',
   styleUrl: './cars-list.component.css'
 })
 export class CarsListComponent {
-  items: CarCardComponent[] = [
+  items: CarModel[] = [
     {
       id: 1,
       name: 'Speedster',
       color: 'Red',
       material: 'Plastic',
       price: 350,
-      inStoke: true
+      inStock: true
     },
     {
       id: 2,
@@ -23,7 +25,7 @@ export class CarsListComponent {
       color: 'Blue',
       material: 'Metal',
       price: 520,
-      inStoke: false
+      inStock: false
     },
     {
       id: 3,
@@ -31,7 +33,7 @@ export class CarsListComponent {
       color: 'Yellow',
       material: 'Plastic',
       price: 410,
-      inStoke: true
+      inStock: true
     }
   ];
 }

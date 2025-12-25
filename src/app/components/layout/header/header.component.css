@@ -2,12 +2,13 @@
   height: 64px;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding-inline: 64px;
   background-color: #FFC0CB;
 }
 
 .header-title {
-  font-size: 32px;
+  font-size: 40px;
   line-height: 100%;
   font-weight: 700;
   color: #303030;

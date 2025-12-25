@@ -4,5 +4,5 @@ export interface CarModel {
   color: string;
   material: string;
   price: number;
-  inStoke: boolean;
+  inStock: boolean;
 }
