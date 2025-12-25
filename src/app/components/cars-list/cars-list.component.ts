@@ -14,6 +14,7 @@ export class CarsListComponent {
     {
       id: 1,
       name: 'Speedster',
+      imageUrl: 'images/red_car.png   images/red_car.png',
       color: 'Red',
       material: 'Plastic',
       price: 350,
@@ -22,6 +23,7 @@ export class CarsListComponent {
     {
       id: 2,
       name: 'Monster Truck',
+      imageUrl: 'images/blue_car.png',
       color: 'Blue',
       material: 'Metal',
       price: 520,
@@ -30,6 +32,7 @@ export class CarsListComponent {
     {
       id: 3,
       name: 'City Racer',
+      imageUrl: 'images/yellow_car.png',
       color: 'Yellow',
       material: 'Plastic',
       price: 410,
