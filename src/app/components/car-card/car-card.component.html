@@ -1,31 +1,33 @@
 <div class="cards-container">
   <div class="card">
-    <img src="images/red_car.png" alt="Red toy car">
-  </div>
-
-  <div>
-    <h1>{{ item.name }}</h1>
-
-    <p>
-      Speedster is a bright and dynamic toy car created for children who enjoy
-      fast races and imaginative play. Its simple but attractive design makes
-      it suitable for both indoor and outdoor games.
-    </p>
-    <p>
-      The car is made from durable plastic, which ensures long-term use and
-      resistance to minor impacts. Thanks to its lightweight construction,
-      Speedster is easy to hold and play with even for younger children.
-    </p>
-
-    <div class="info">
-      <h2>Basic information</h2>
-      <p>Color: {{item.color}}</p>
-      <p>Material: {{item.material}}</p>
-      <p>Price: {{ item.price }} UAH</p>
-      <p>Availability: {{item.inStock}}</p>
+    <div class="image-wrapper">
+      <div *ngIf="item.price &lt; 400" class="promo-badge">Sale</div>
+      <img [src]="item.imageUrl" [alt]="item.name">
     </div>
 
+    <div class="card-content">
+      <h1>{{ item.name }}</h1>
+
+      <p class="description">
+        {{ item.description_1 }}
+      </p>
+      <p class="description">
+        {{ item.description_2 }}
+      </p>
+
+      <div class="info">
+        <h2>Basic information</h2>
+        <p><strong>Color:</strong> {{item.color}}</p>
+        <p><strong>Material:</strong> {{item.material}}</p>
+        <p><strong>Price:</strong> {{ item.price }} UAH</p>
+        <p><strong>Availability:</strong> {{item.inStock}}</p>
+      </div>
+
+      <button class="more-button" [ngClass]="isClicked ? 'active' : ''" (click)="toggleColor()">
+        <span *ngIf="isClicked">Interesting</span>
+        <span *ngIf="!isClicked">Interesting</span>
+      </button>
+
+    </div>
   </div>
-
-
 </div>

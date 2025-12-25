@@ -1,56 +1,86 @@
-/* Контейнер всіх карток */
 .cards-container {
   display: flex;
-  /* розташовує картки в ряд */
-  flex-wrap: wrap;
-  /* якщо не поміщається, переносить на новий рядок */
-  gap: 20px;
-  /* відстань між картками */
-  justify-content: center;
-  /* по центру */
-  padding: 20px;
-}
-
-/* Окрема картка */
-.card {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-  width: 250px;
-  /* ширина картки */
-  padding: 15px;
-  box-sizing: border-box;
-  display: flex;
   flex-direction: column;
-  /* вертикальне розташування елементів */
+  gap: 40px;
+  padding: 20px;
+  background-color: #FFFAFA;
+  border: 2px solid #FFE4E1;
+  border-radius: 12px;
+}
+
+.card {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.image-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 300px;
+  height: 360px;
+  background-color: white;
+  border: 2px solid #FFE4E1;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  padding: 10px;
+  overflow: hidden;
 }
 
-/* Картинка */
-.card img {
+.promo-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #FF0000;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.image-wrapper img {
   width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  object-fit: contain;
 }
 
-/* Назва товару */
-.card h1 {
-  font-size: 20px;
-  margin: 0 0 10px 0;
-  text-align: center;
+.card-content {
+  flex: 1;
 }
 
-/* Опис */
-.card p {
-  font-size: 14px;
-  margin: 5px 0;
-  text-align: center;
+h1 {
+  font-size: 32px;
+  margin-top: 0;
+  margin-bottom: 16px;
 }
 
-/* Блок базової інформації */
-.card .info {
-  border-top: 1px solid #ccc;
-  padding-top: 10px;
-  width: 100%;
-  text-align: left;
+h2 {
+  font-size: 24px;
+  margin-top: 24px;
+}
+
+.info p {
+  margin: 8px 0;
+}
+
+.more-button {
+  margin-top: 24px;
+  padding: 10px 24px;
+  background-color: #FFC0CB;
+  color: #303030;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: 1.5px solid #303030;
+}
+
+.more-button.active {
+  background-color: #F08080;
+  color: white;
+  border: 1.5px solid #303030;
 }

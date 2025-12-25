@@ -10,4 +10,9 @@ import { CarModel } from '../../shared/models/car_model';
 })
 export class CarCardComponent {
   @Input() item!: CarModel;
+
+  isClicked: boolean = false;
+  toggleColor() {
+    this.isClicked = !this.isClicked;
+  }
 }
