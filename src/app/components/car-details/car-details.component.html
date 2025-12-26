@@ -1,0 +1,22 @@
+<div *ngIf="car" class="details-wrapper">
+  <h1>{{ car.name }}</h1>
+  <img [src]="car.imageUrl" [alt]="car.name">
+
+  <div class="info">
+    <p><strong>Ціна:</strong> {{ car.price }} UAH</p>
+    <p><strong>Колір:</strong> {{ car.color }}</p>
+    <p><strong>Матеріал:</strong> {{ car.material }}</p>
+  </div>
+
+  <div class="description">
+    <h3>Про товар:</h3>
+    <p>{{ car.description_1 }}</p>
+    <p>{{ car.description_2 }}</p>
+  </div>
+
+  <button routerLink="/items">Назад до списку</button>
+</div>
+
+<div *ngIf="!car">
+  <p>Car is not found...</p>
+</div>

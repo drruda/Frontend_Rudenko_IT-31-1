@@ -65,6 +65,8 @@ export class DataService {
   }
 
   this.itemsSubject.next(filtered);
-}
-
+  }
+  getItemById(id: number): CarModel | undefined {
+  return this.items.find(item => item.id === id);
+  }
 }

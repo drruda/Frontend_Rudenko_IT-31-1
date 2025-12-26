@@ -48,6 +48,7 @@
 
 .card-content {
   flex: 1;
+  font-family: sans-serif;
 }
 
 h1 {
@@ -66,6 +67,10 @@ h2 {
 }
 
 .more-button {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+
   margin-top: 24px;
   padding: 12px 28px;
   background-color: #FFC0CB;
@@ -74,7 +79,7 @@ h2 {
   border-radius: 25px;
   font-size: 16px;
   font-weight: 700;
-  font-family: Arial, sans-serif;
+  font-family: sans-serif;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-transform: uppercase;
