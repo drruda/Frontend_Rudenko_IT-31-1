@@ -5,7 +5,8 @@ import { CarCardComponent } from '../car-card/car-card.component';
 import { FilterComponent } from '../filter/filter.component';
 import { FormsModule } from '@angular/forms';
 import { DataService } from '../../services/data.service';
-import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cars-list',
@@ -14,24 +15,15 @@ import { Subscription } from 'rxjs';
   styleUrl: './cars-list.component.css'
 })
 
-export class CarsListComponent implements OnInit, OnDestroy {
-  items: CarModel[] = [];
+export class CarsListComponent implements OnInit {
+  items$: Observable<CarModel[]> | undefined;
   selectedFilter: string = 'all';
   searchText: string = '';
 
-  private sub: Subscription = new Subscription();
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.sub = this.dataService.getCars().subscribe((data) => {
-      this.items = data;
-  });
-  }
-
-  ngOnDestroy(): void {
-    if (this.sub) {
-      this.sub.unsubscribe();
-    }
+    this.items$ = this.dataService.getCars();
   }
 
   applyFilter() {
@@ -47,7 +39,21 @@ export class CarsListComponent implements OnInit, OnDestroy {
     alert('You selected: ' + car.name + ' (Price: ' + car.price + ' UAH)');
   }
 
-  getAllCount() { return this.items.length; }
-  getInStockCount() { return this.items.filter(c => c.inStock).length; }
-  getOutOfStockCount() { return this.items.filter(c => !c.inStock).length; }
+  getAllCount(): Observable<number> | undefined {
+    return this.items$?.pipe(
+      map((list: CarModel[]) => list.length)
+    );
+  }
+
+  getInStockCount(): Observable<number> | undefined {
+    return this.items$?.pipe(
+      map((list: CarModel[]) => list.filter((c: CarModel) => c.inStock).length)
+    );
+  }
+
+  getOutOfStockCount(): Observable<number> | undefined {
+    return this.items$?.pipe(
+      map((list: CarModel[]) => list.filter((c: CarModel) => !c.inStock).length)
+    );
+  }
 }

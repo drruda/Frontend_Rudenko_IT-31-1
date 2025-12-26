@@ -1,5 +1,5 @@
 <div class="cards-container">
-  <div class="card">
+  <div class="card" appHoverStyle>
     <div class="image-wrapper">
       <div *ngIf="item.price &lt; 400" class="promo-badge">Sale</div>
       <img [src]="item.imageUrl" [alt]="item.name">
@@ -9,10 +9,10 @@
       <h1>{{ item.name }}</h1>
 
       <p class="description">
-        {{ item.description_1 }}
+        {{ item.description_1 | truncate:60 }}
       </p>
       <p class="description">
-        {{ item.description_2 }}
+        {{ item.description_2 | truncate:60}}
       </p>
 
       <div class="info">
