@@ -1,0 +1,22 @@
+<div class="container mt-3">
+  <h5>Фільтр за наявністю</h5>
+  <div class="d-inline-flex">
+    <div class="form-check me-3">
+      <input class="form-check-input" type="radio" id="all" name="carFilter" value="all"
+        [(ngModel)]="selectedFilterRadioButton" (change)="onFilterChange()">
+      <label class="form-check-label" for="all">Всі ({{all}})</label>
+    </div>
+
+    <div class="form-check me-3">
+      <input class="form-check-input" type="radio" id="available" name="carFilter" value="available"
+        [(ngModel)]="selectedFilterRadioButton" (change)="onFilterChange()">
+      <label class="form-check-label" for="available">В наявності ({{inStock}})</label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" id="outOfStock" name="carFilter" value="outOfStock"
+        [(ngModel)]="selectedFilterRadioButton" (change)="onFilterChange()">
+      <label class="form-check-label" for="outOfStock">Немає ({{outOfStock}})</label>
+    </div>
+  </div>
+</div>

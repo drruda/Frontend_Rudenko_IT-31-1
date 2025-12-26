@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarModel } from '../../shared/models/car_model';
 
@@ -11,8 +11,11 @@ import { CarModel } from '../../shared/models/car_model';
 export class CarCardComponent {
   @Input() item!: CarModel;
 
+  @Output() carSelected: EventEmitter<CarModel> = new EventEmitter<CarModel>();
+
   isClicked: boolean = false;
   toggleColor() {
     this.isClicked = !this.isClicked;
+    this.carSelected.emit(this.item);
   }
 }

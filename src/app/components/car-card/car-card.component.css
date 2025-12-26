@@ -67,20 +67,25 @@ h2 {
 
 .more-button {
   margin-top: 24px;
-  padding: 10px 24px;
+  padding: 12px 28px;
   background-color: #FFC0CB;
-  color: #303030;
+  color: #2c2c2c;
   border: none;
-  border-radius: 6px;
+  border-radius: 25px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
   cursor: pointer;
-  transition: background-color 0.2s;
-  border: 1.5px solid #303030;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.more-button:hover {
+  background-color: #ff8da1;
 }
 
 .more-button.active {
   background-color: #F08080;
   color: white;
-  border: 1.5px solid #303030;
 }

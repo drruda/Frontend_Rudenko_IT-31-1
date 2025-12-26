@@ -1,15 +1,19 @@
 .header {
-  height: 64px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-inline: 64px;
   background-color: #FFC0CB;
+  box-shadow: 0 4px 12px rgba(255, 192, 203, 0.4);
+  border-bottom: 1px solid #ffacbb;
 }
 
 .header-title {
-  font-size: 40px;
-  line-height: 100%;
-  font-weight: 700;
-  color: #201f1f;
+  font-family: sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: #2c2c2c;
+  letter-spacing: -1px;
+  text-transform: capitalize;
 }

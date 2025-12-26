@@ -1,3 +1,25 @@
+<div class="controls-panel">
+  <app-filter
+    [all]="getAllCount()"
+    [inStock]="getInStockCount()"
+    [outOfStock]="getOutOfStockCount()"
+    (filterChanged)="onFilterSelectionChanged($event)">
+  </app-filter>
+
+  <div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="searchText"
+      placeholder="Search car by name..."
+      class="search-input"
+    />
+  </div>
+</div>
+
 <div class="card-list">
-  <app-car-card *ngFor="let item of items" [item]="item"></app-car-card>
+  <app-car-card
+    *ngFor="let item of filteredItems"
+    [item]="item"
+    (carSelected)="onCarSelected($event)">
+  </app-car-card>
 </div>
