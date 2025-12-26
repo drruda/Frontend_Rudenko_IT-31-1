@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CarModel } from '../shared/models/car_model';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,29 @@ export class DataService {
     }
   ];
 
-  getCars(): CarModel[] {
-    return this.items;
+  private itemsSubject = new BehaviorSubject<CarModel[]>(this.items);
+
+  constructor() {}
+  getCars(): Observable<CarModel[]> {
+    return this.itemsSubject.asObservable();
   }
+
+  filterItems(searchText: string, selectedFilter: string): void {
+  let filtered = this.items;
+
+  if (selectedFilter === 'available') {
+    filtered = this.items.filter(item => item.inStock);
+  } else if (selectedFilter === 'outOfStock') {
+    filtered = this.items.filter(item => !item.inStock);
+  }
+
+  if (searchText.trim() !== '') {
+    filtered = filtered.filter(item =>
+      item.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+  }
+
+  this.itemsSubject.next(filtered);
+}
+
 }
